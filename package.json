@@ -1,0 +1,8 @@
+{
+  "name": "binload",
+  "version": "0.0.1",
+  "dependencies": {
+    "coffee-script": "1.1.2",
+    "express": "2.3.11"
+  }
+}
