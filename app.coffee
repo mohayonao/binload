@@ -16,12 +16,11 @@ app.configure "development", ->
 app.configure "production", ->
     app.use express.errorHandler()
 
-
 app.get "/", (req, res)->
     url_accept_prefixes = [ "http://dl.dropbox.com/u/", "https://www.sugarsync.com/pf/" ]
 
     uri = req.url.substr(2)
-    if not url_accept_prefixes.some((x)->uri.indexOf(x) == 0)
+    if url_accept_prefixes.every((x)->uri.indexOf(x) != 0)
         res.send "usage: " + req.headers.host + "/?url (dropbox or sugarsync)"
     else
         target = url.parse(uri)
