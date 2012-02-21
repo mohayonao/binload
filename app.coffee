@@ -19,7 +19,9 @@ app.configure "production", ->
 app.get "/", (req, res)->
 
     uri = req.url.substr(2)
-    if not uri then return
+    if not uri
+        res.send "usage: " + req.headers.host + "/?url";
+        return
 
     target = url.parse(uri)
     console.log target
